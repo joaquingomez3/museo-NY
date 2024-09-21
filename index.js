@@ -7,6 +7,10 @@ const port = 3000;
 
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+    res.send('Bienvenido al Museo');
+});
+
 app.get('/api/artworks', async (req, res) => {
     const { query, departmentId } = req.query;
     let url = `https://collectionapi.metmuseum.org/public/collection/v1/search?q=${query}`;
@@ -98,5 +102,6 @@ app.get('/api/countries', async (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor en http://localhost:${port}`);
 });
+
 
 //prueba commit
