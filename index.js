@@ -1,5 +1,6 @@
 const express = require('express');
 const fetch = require('node-fetch');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -8,7 +9,7 @@ const port = 3000;
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.send('Bienvenido al Museo');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get('/api/artworks', async (req, res) => {
